@@ -65,9 +65,7 @@ wechat.on('event.subscribe', function (session) {
 });
 
 
-app.use('/api', function (req, res) {
-    return wechat.process(req, res);
-});
+app.use('/api', wechat.process());
 
 describe('Wechat.js', function () {
 

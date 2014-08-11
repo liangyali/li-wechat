@@ -49,7 +49,7 @@ var wechat = require('li-wechat')('TOKEN');
 
 ###调试消息
 > * 使用namespace为wechat的debug
-####开启调试方式
+####开启消息调试方式
 > ```shell
     DEBUG=wechat node index.js
 ```
@@ -68,9 +68,7 @@ var wechat = require('li-wechat')('TOKEN');
        session.replyTextMessage("Received:" + session.incomingMessage.Content);
    });
 
-   app.use('/api', function (req, res) {
-       return wechat.process(req, res);
-   });
+   app.use('/api',  wechat.process());
 
    app.listen(80);
 ```

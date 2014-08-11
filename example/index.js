@@ -11,8 +11,6 @@ wechat.on('text', function (session) {
     session.replyTextMessage("@" + session.incomingMessage.Content);
 });
 
-app.use('/api', function (req, res) {
-    return wechat.process(req, res);
-});
+app.use('/api', wechat.process());
 
 app.listen(8080);
